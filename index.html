@@ -62,7 +62,7 @@
           const isPcAwake = await probePcOnline(pcUrl, 2500);
           if (isPcAwake) {
             document.getElementById('status').innerText = 'Home PC is ON! Connecting to local studio...';
-            window.location.replace(pcUrl);
+            const pinQ = params.get("pin") ? ("?pin=" + encodeURIComponent(params.get("pin"))) : ""; window.location.replace(pcUrl + pinQ);
             return;
           }
         }
